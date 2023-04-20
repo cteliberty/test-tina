@@ -18,7 +18,7 @@ export default function Home(props) {
             backgroundColor: "lightgray",
           }}
         >
-          {JSON.stringify(data.post, null, 2)}
+          {JSON.stringify(data.project, null, 2)}
         </pre>
       </code>
     </Layout>
@@ -26,8 +26,8 @@ export default function Home(props) {
 }
 
 export const getStaticPaths = async () => {
-  const { data } = await client.queries.postConnection();
-  const paths = data.postConnection.edges.map((x) => {
+  const { data } = await client.queries.blogConnection();
+  const paths = data.blogConnection.edges.map((x) => {
     return { params: { slug: x.node._sys.filename } };
   });
 
@@ -38,7 +38,7 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async (ctx) => {
-  const { data, query, variables } = await client.queries.post({
+  const { data, query, variables } = await client.queries.project({
     relativePath: ctx.params.slug + ".md",
   });
 

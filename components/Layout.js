@@ -18,8 +18,12 @@ export const Layout = (props) => {
           <a>Home</a>
         </Link>
         {' | '}
-        <Link href="/posts">
-          <a>Posts</a>
+        <Link href="/blogs">
+          <a>Blogs</a>
+        </Link>
+        {' | '}
+        <Link href="/projects">
+          <a>Projects</a>
         </Link>
       </header>
       <main>{props.children}</main>
