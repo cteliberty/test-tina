@@ -1,0 +1,53 @@
+.uam_figure {
+  &-shadow figcaption {
+    margin-top: 0 !important;
+    padding-left: $space;
+  }
+
+  &-margin img {
+    margin-left: 25px;
+  }
+
+  &-before {
+    position: relative;
+
+    &:before {
+      content: '';
+      display: none;
+      position: absolute;
+      z-index: -1;
+      top: -61px;
+      left: -383px;
+      width: 478px;
+      height: 463px;
+      background: url('../images/projects/touch/bg-touch.png') center no-repeat;
+    }
+  }
+
+  &-column {
+    display: flex !important;
+    flex-direction: column;
+
+    figcaption {
+      padding: 0 30px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+
+  /* Responsive */
+  @media screen and (min-width: $screen-m-min) {
+    &-before:before {
+      display: block;
+    }
+
+    &-column {
+      margin-left: -111px;
+      flex-direction: row-reverse;
+
+      figcaption {
+        max-width: 300px;
+      }
+    }
+  }
+}

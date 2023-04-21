@@ -1,0 +1,15 @@
+.uam_header {
+  $self: &;
+  padding-top: $space;
+  position: relative;
+  z-index: 1;
+
+  > * {
+    @include flex($justify: true);
+  }
+
+  /* Responsive */
+  @media screen and (min-width: $screen-s-min) {
+    padding-top: 50px;
+  }
+}

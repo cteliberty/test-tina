@@ -1,0 +1,81 @@
+.uam_headerExcerpt {
+  @include flex($align: flex-start);
+  $self: &;
+  margin-top: 60px;
+  margin-bottom: $space-m;
+  flex-wrap: wrap;
+
+  &_title {
+    @include fontSize(16px, $space);
+    @include title;
+    display: inline-block;
+
+    &:after {
+      margin: 8px 0 $space;
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: $color-black;
+    }
+  }
+
+  ul {
+    @include flex($align: flex-start, $direction: true);
+    margin-top: $space-m;
+    width: 100%;
+  }
+
+  li {
+    @include fontSize(14px, 22px);
+
+    + li {
+      margin-top: $space;
+    }
+  }
+
+  img + img {
+    margin-top: $space;
+  }
+
+  /* Responsive */
+  @media screen and (min-width: $screen-s-min) {
+    margin-top: $space-l;
+    margin-bottom: 0;
+
+    &_title {
+      display: block;
+    }
+
+    ul {
+      flex-direction: row;
+    }
+
+    li {
+      width: calc(33.33% - #{$space});
+
+      + li {
+        margin-top: 0;
+        margin-left: $space;
+      }
+    }
+  }
+
+  @media screen and (min-width: $screen-m-min) {
+    ul {
+      width: auto;
+    }
+
+    li {
+      width: 215px;
+    }
+  }
+
+  @media screen and (min-width: $screen-l-min) {
+    flex-wrap: nowrap;
+
+    ul {
+      margin-top: 0;
+    }
+  }
+}

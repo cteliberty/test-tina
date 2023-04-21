@@ -1,0 +1,54 @@
+.uam_offers {
+  margin-top: -$space-l;
+  text-align: left;
+
+  &.uam {
+    &_block {
+      padding-top: 0;
+      overflow: inherit;
+    }
+
+    &_wrapper {
+      padding-left: $space-m;
+    }
+  }
+
+  &_list.uam_excerpt {
+    margin-bottom: $space-m;
+    margin-left: 0;
+  }
+
+  &_table {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &_legend {
+    @include fontStyle(14px, 22px, 400);
+    font-style: italic;
+  }
+
+  /* Responsive */
+  @media screen and (min-width: $screen-s-min) {
+    &.uam_wrapper {
+      padding-left: $space-l;
+    }
+  }
+
+  @media screen and (min-width: $screen-m-min) {
+    &_table {
+      display: table;
+    }
+  }
+
+  @media screen and (min-width: $screen-l-min) {
+    &.uam_wrapper {
+        padding-left: 160px;
+        padding-right: 160px;
+    }
+
+    &_list .uam_excerpt_title {
+      left: -30px;
+    }
+  }
+}

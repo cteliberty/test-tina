@@ -1,0 +1,398 @@
+.uam_project {
+  position: relative;
+  z-index: 1;
+
+  &:before {
+    @include anim($duration: 0.8s, $name: slideTop);
+    content: '';
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: $color-white;
+    mix-blend-mode: difference;
+  }
+
+  @keyframes slideTop {
+    from {
+      top: 0;
+      opacity: 1;
+    }
+
+    to {
+      top: -100%;
+      opacity: 0;
+    }
+  }
+
+  .uam_headerProject_bg {
+    display: none;
+  }
+
+  // Projects detail
+  &-praloup,
+  &-rs {
+    .uam_img {
+      &-full {
+        margin-top: $space-m;
+      }
+
+      figcaption {
+        max-width: 628px;
+      }
+    }
+  }
+
+  &-decathlon,
+  &-dune {
+    .uam_viewport_body:after {
+      content: '';
+      position: absolute;
+      z-index: 0;
+      bottom: -2px;
+      right: 0;
+      width: 100%;
+    }
+  }
+
+  &-scf .uam_step-bg-gradientGrey,
+  &-dune .uam_step-bg-gradientPurple {
+    img {
+      margin-top: -$space-l;
+    }
+  }
+
+  &-rs,
+  &-dsf {
+    .uam_headerProject_bg {
+      right: -30%;
+    }
+  }
+
+  &-mbnr {
+    .uam {
+      &_headerProject_bg {
+        margin-top: -12%;
+        right: -27%;
+        max-width: 430px;
+      }
+
+      &_img-left {
+        margin-left: -$space;
+        max-width: 110%;
+      }
+    }
+  }
+
+  &-scf {
+    .uam {
+      &_step-bg-gradientGrey {
+        padding-bottom: $space;
+      }
+
+      &_img-left img {
+        margin: -$space-l 0;
+      }
+    }
+  }
+
+  &-praloup {
+    .uam_step-margin {
+      margin-top: -$space-l;
+      z-index: -2;
+
+      &.uam_stepItem {
+        padding-top: 0;
+      }
+
+      figcaption {
+        position: absolute;
+        top: 162px;
+        left: 5px;
+        max-width: 194px;
+      }
+    }
+  }
+
+  &-touch .uam_headerProject_bg {
+    margin-top: -40%;
+    right: -40%;
+    max-width: 765px;
+  }
+
+  &-wwp {
+    .uam {
+      &_headerProject_bg {
+        margin-top: -36%;
+        right: -22%;
+        max-width: 740px;
+      }
+
+      &_step-bg-green {
+        &:before {
+          top: 130px;
+          height: 80%;
+        }
+
+        .uam_img img {
+          margin-top: -10px;
+        }
+      }
+    }
+  }
+
+  &-rs .uam_headerProject_bg {
+    margin-top: -18%;
+  }
+
+  &-decathlon {
+    .uam {
+      &_headerProject_bg {
+        margin-top: -40%;
+        right: -20%;
+        max-width: 1000px;
+      }
+
+      &_pagination_wrapper {
+        z-index: 2 !important;
+      }
+
+      &_viewport {
+        &_body:after {
+          height: 304px;
+          background: url('../images/projects/decathlon/bg-decathlon.png') center top no-repeat;
+          background-size: cover;
+        }
+
+        &_content {
+          margin-bottom: -6%;
+        }
+      }
+    }
+  }
+
+  &-dune {
+    .uam {
+      &_headerProject_bg {
+        margin-top: -45%;
+        right: -50%;
+        max-width: 862px;
+      }
+
+      &_viewport_body:after {
+        height: 260px;
+        background: url('../images/projects/dune/bg-dune.png') center top no-repeat;
+        background-size: cover;
+      }
+
+      &_subfooter {
+        padding-bottom: 150px;
+      }
+    }
+  }
+
+  &-dsf {
+    .uam {
+      &_headerProject_bg {
+        margin-top: -15%;
+      }
+
+      &_step-bg-e1:before {
+        top: 106px;
+      }
+    }
+  }
+
+  &-skipower .uam_headerProject_bg {
+    margin-top: -40%;
+    right: -2%;
+    background-position: right;
+  }
+
+  &-data .uam_headerProject_bg {
+    margin-top: -36%;
+    max-width: 708px;
+    right: -42%;
+  }
+
+  /* Responsive */
+  @media screen and (min-width: $screen-s-min) {
+    .uam_headerProject_bg {
+      display: block;
+    }
+
+    &-mbnr .uam_img-left {
+      margin-left: -$space-l;
+    }
+
+    &-scf .uam_headerProject_bg {
+      margin-top: -32%;
+      right: -18%;
+    }
+
+    &-praloup .uam_headerProject_bg {
+      margin-top: -60%;
+      right: -45%;
+    }
+  }
+
+  @media screen and (min-width: $screen-m-min) {
+    .uam_block {
+      @include bg($size: contain, $position: left top);
+      padding-top: 100px;
+      background-image: url('../images/markers.png');
+    }
+
+    &-mbnr .uam_headerProject_bg {
+      margin-top: -6%;
+      right: -8%;
+    }
+
+    &-scf .uam_headerProject_bg {
+      margin-top: -24%;
+      right: -28%;
+    }
+
+    &-praloup .uam_headerProject_bg {
+      margin-top: -45%;
+    }
+
+    &-touch .uam_headerProject_bg {
+      margin-top: -25%;
+      right: -28%;
+    }
+
+    &-wwp {
+      .uam {
+        &_headerProject_bg {
+          margin-top: -22%;
+          right: -6%;
+        }
+
+        &_step-bg-green {
+          .uam_img img {
+            margin-top: 18%;
+            margin-right: -22%;
+            max-width: $wrapper;
+          }
+        }
+      }
+    }
+
+    &-decathlon .uam_block {
+      margin-bottom: -180px;
+    }
+
+    &-dune {
+      .uam {
+        &_headerProject_bg {
+          margin-top: -36%;
+          right: -25%;
+        }
+
+        &_stepItem-right .uam_img {
+          margin-top: 86px;
+        }
+      }
+    }
+
+    &-skipower .uam_headerProject_bg {
+      margin-top: -32%;
+      right: 14%;
+    }
+
+    &-data .uam_headerProject_bg {
+      margin-top: -15%;
+      right: -30%;
+    }
+  }
+
+  @media screen and (min-width: $screen-l-min) {
+    &-mbnr .uam_img-left img {
+      max-width: 100%;
+    }
+
+    &-scf {
+      .uam {
+        &_step-bg-gradientGrey {
+          padding-bottom: 0;
+
+          .uam_img {
+            align-items: flex-start;
+          }
+
+          img {
+            margin-left: -$space-l;
+            max-width: 1185px;
+          }
+        }
+
+        &_img-left img {
+          max-width: 1240px;
+        }
+
+        &_headerProject_bg {
+          margin-top: -20%;
+          right: -3%;
+        }
+      }
+    }
+
+    &-praloup .uam_headerProject_bg {
+      margin-top: -34%;
+      right: -14%;
+    }
+
+    &-touch {
+      .uam {
+        &_headerProject_bg {
+          margin-top: -20%;
+          right: 0;
+        }
+
+        &_stepItem {
+          &-center img {
+            max-width: 954px;
+          }
+
+          &-full img {
+            max-width: $wrapper;
+          }
+        }
+      }
+    }
+
+    &-rs .uam_headerProject_bg {
+      margin-top: -15%;
+      right: 2%;
+    }
+
+    &-decathlon {
+      .uam {
+        &_headerProject_bg {
+          margin-top: -30%;
+          right: -10%;
+        }
+
+        &_img img {
+          max-width: $wrapper;
+        }
+      }
+    }
+
+    &-dsf .uam_headerProject_bg {
+      margin-top: -16%;
+      right: 7%;
+    }
+
+    &-skipower .uam_headerProject_bg {
+      background-size: 50%;
+      height: 1100px;
+    }
+
+    &-data .uam_headerProject_bg {
+      right: 0;
+    }
+  }
+}

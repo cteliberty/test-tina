@@ -1,0 +1,54 @@
+.uam_link {
+  $self: &;
+
+  i,
+  &-underline,
+  &-underline:after {
+    @include transition(all);
+  }
+
+  &_arrow {
+    @include fontSize(18px, 24px);
+    @include flex($align: flex-end, $direction: true, $justify: false);
+    position: relative;
+
+    i {
+      position: absolute;
+      right: -$space;
+      top: -15px;
+      font-size: 90px;
+    }
+
+    &:hover {
+      i {
+        transform: translateX($space);
+      }
+    }
+  }
+
+  &-underline {
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: $color-black;
+    }
+  }
+
+  &:hover {
+    text-decoration: none;
+
+    #{$self}-underline {
+      font-style: italic;
+
+      &:after {
+        width: 100%;
+      }
+    }
+  }
+}

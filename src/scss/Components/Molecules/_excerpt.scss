@@ -1,0 +1,75 @@
+.uam_excerpt {
+  $self: &;
+  margin-left: $space;
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+
+  &-header {
+    @include anim($duration: 0.3s, $name: slideTopExcerpt, $delay: true);
+    margin-top: -3%;
+    right: 0;
+    opacity: 0;
+
+    @keyframes slideTopExcerpt {
+      from {
+        top: $space-s;
+        opacity: 0;
+      }
+      to   {
+        top: 0;
+        opacity: 1;
+      }
+    }
+  }
+
+  &_title {
+    margin: 0;
+    position: absolute;
+    top: -30px;
+    left: -16px;
+  }
+
+  &:hover {
+    #{$self}_title:after {
+      bottom: 4px;
+      left: 4px;
+    }
+  }
+
+  ul {
+    padding-left: 16px;
+    list-style: disc;
+  }
+
+  a {
+    color: $color-blue;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  /* Responsive */
+  @media screen and (min-width: $screen-l-min) {
+    &-header {
+      margin-left: 0;
+      position: absolute;
+      right: $space-l;
+      width: 302px;
+
+      @keyframes slideTopExcerpt {
+        from {
+          top: 163px;
+          opacity: 0;
+        }
+
+        to {
+          top: 153px;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+.uam {
+  &_fields,
+  &_fields > * {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  &_fields {
+    @include flex($align: flex-start, $direction: true);
+    @include fontSize(16px, $space);
+    $self: &;
+    position: relative;
+    color: $color-black;
+    background-color: $color-white;
+    border: $border;
+
+    &_wrapper {
+      width: 100%;
+      max-width: 520px;
+
+      > * {
+        @include flex($align: flex-start, $direction: true);
+      }
+    }
+
+    &_textarea {
+      margin-top: $space;
+
+      &#{$self} label {
+        top: 22px;
+      }
+    }
+
+    label {
+      @include center($y: true);
+      @include transition(all);
+      padding-left: 24px;
+    }
+
+    input,
+    textarea {
+      @include fontSize(16px, $space);
+      padding: 16px 24px;
+      border: 0;
+      background-color: transparent;
+
+      &:focus,
+      &:valid {
+        + label {
+          top: 12px !important;
+          color: $color-blue;
+          font-size: 12px;
+        }
+      }
+    }
+
+    textarea {
+      height: 192px;
+    }
+  }
+}

@@ -1,0 +1,106 @@
+.uam_skillItem {
+  @include flex($direction: true);
+  @include fontSize(14px, 22px);
+  $self: &;
+  margin-left: -$space;
+  margin-right: -$space;
+  padding: $space-m $space-m $space-m $space;
+  width: calc(100% + #{$space-m});
+  border-left: $space solid $color-yellow;
+  background-color: rgba($color-yellow, 0.1);
+
+  &[data-color="green"] {
+    border-color: $color-green;
+    background-color: rgba($color-green, 0.1);
+
+    #{$self}_description strong {
+      background-color: $color-green;
+    }
+  }
+
+  &[data-color="pink"] {
+    border-color: $color-pink;
+    background-color: rgba($color-pink, 0.1);
+
+    #{$self}_description strong {
+      background-color: $color-pink;
+    }
+  }
+
+  &:hover {
+    #{$self} {
+      &_title {
+        color: $color-black;
+      }
+
+      &_description {
+        opacity: 1;
+      }
+    }
+  }
+
+  &_title {
+    @include transition(color);
+    @include fontSize(40px, 48px);
+    @include title;
+    position: relative;
+    color: $color-black;
+    word-break: break-all;
+
+    &:before {
+      content: '/';
+      padding-right: $space;
+    }
+  }
+
+  &_description {
+    @include transition(opacity);
+    margin: $space-m 0 0;
+    padding: 0;
+    opacity: 1;
+    text-align: left;
+    border-left: 0;
+
+    strong {
+      font-weight: normal;
+      background-color: $color-yellow;
+    }
+  }
+
+  /* Responsive */
+  @media screen and (min-width: $screen-s-min) {
+    &_title {
+      @include fontSize(68px, 48px);
+    }
+  }
+
+  @media screen and (min-width: $screen-m-min) {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+    width: auto;
+    flex-direction: row-reverse;
+    border-left: 0 !important;
+    background-color: transparent !important;
+
+    &_title {
+      @include fontSize(78px, $space-l);
+      color: $color-white;
+      word-break: initial;
+      text-shadow: -1px 1px 0 $color-black, 1px 1px 0 $color-black, 1px -1px 0 $color-black, -1px -1px 0 $color-black;
+    }
+
+    &_description {
+      margin: 5px 0;
+      padding: 0 $space;
+      opacity: 0;
+      border-left: 2px solid $color-black;
+    }
+  }
+
+  @media screen and (min-width: $screen-l-min) {
+    &_title {
+      @include fontSize(128px, 138px);
+    }
+  }
+}

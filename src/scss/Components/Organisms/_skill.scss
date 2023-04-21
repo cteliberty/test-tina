@@ -1,0 +1,24 @@
+.uam_skill {
+  &.uam_block {
+    padding-top: 0;
+    padding-bottom: $space-l;
+    text-align: right;
+
+    &.uam_wrapper {
+      padding-left: $space;
+      padding-right: 0;
+    }
+
+    /* Responsive */
+    @media screen and (min-width: $screen-s-min) {
+      padding-top: $space-m;
+    }
+
+    @media screen and (min-width: $screen-m-min) {
+      &.uam_wrapper {
+        padding-left: $space-l;
+        padding-right: $space-l;
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+// Fonts
+$font-text: 'IBM Plex Mono', sans-serif;
+$font-title: 'Work Sans', sans-serif;
+$font-icon: 'uam' !important;
+
+// Colors
+$color-white: #FFF;
+$color-black: #060A11;
+$color-blue: #4929FF;
+$color-lightblue: #E7F2F9;
+$color-blue_5a: #5AE9F6;
+$color-darkblue: #050822;
+$color-yellow: #FFD600;
+$color-green: #00FFC2;
+$color-lightgreen: #94ECD9;
+$color-pink: #FF00E5;
+$color-darkpink: #FF35A7;
+$color-purple: #CDDDFF;
+$color-purple_f8: #F8F6FD;
+$color-lightpurple: #B4B4CD;
+$color-grey: #DADAF3;
+$color-grey_ee: #EEE;
+$color-grey_eb: #EBEBEA;
+$color-grey_e1: #E1E1E1;
+$color-grey_ec: #ECECEC;
+$color-grey_fa: #FAFAFA;
+$color-lightgrey: #F7F7F7;
+
+
+// Burger colors
+$burgerColor_green: #68a31d;
+$burgerColor_red: #bf0000;
+$burgerColor_yellow: #fb921c;
+$burgerColor_brown: #663a13;
+
+// Space
+$space: 20px;
+$space-s: ($space / 2); //10px
+$space-m: $space * 2; //40px
+$space-l: $space-m * 2; //80px
+$space-xl: 138px;
+
+// Border
+$border: 2px solid $color-black;
+
+// Wrapper
+$wrapper: 1440px;

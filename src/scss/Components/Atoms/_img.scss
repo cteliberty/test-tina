@@ -1,0 +1,64 @@
+.uam_img {
+  @include flex($align: flex-end, $direction: true);
+  @include fontSize(12px, 16px);
+  $self: &;
+  position: relative;
+  z-index: -1;
+  text-align: left;
+
+  &-full,
+  &-slider {
+    align-items: center;
+  }
+
+  &-isBg {
+    margin-left: -$space;
+    max-width: calc(100% + #{$space-m});
+  }
+
+  &-full {
+    width: 100%;
+  }
+
+  &-left {
+    align-items: flex-start;
+  }
+
+  &-slider {
+    margin-left: -$space !important;
+    margin-right: -$space !important;
+    width: calc(100% + #{$space-m});
+    overflow: inherit !important;
+  }
+
+  figure {
+    display: table;
+
+    + figure {
+      margin-top: 110px;
+    }
+  }
+
+  figcaption {
+    margin-top: 24px;
+    display: table-caption;
+    caption-side: bottom;
+    font-style: italic;
+  }
+
+  /* Responsive */
+  @media screen and (min-width: $screen-s-min) {
+    &-slider {
+      margin: 0 auto !important;
+      width: 100%;
+    }
+  }
+
+  @media screen and (min-width: $screen-m-min) {
+    &-isBg {
+      margin-top: 127px;
+      margin-left: -111px;
+      max-width: 1143px;
+    }
+  }
+}

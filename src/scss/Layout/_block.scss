@@ -1,0 +1,77 @@
+.uam_block {
+  padding: $space-m 0;
+  text-align: center;
+  overflow: hidden;
+
+  &_title {
+    @include fontSize(22px, 32px);
+    margin-bottom: $space-m;
+    display: inline-flex;
+
+    i {
+      @include transition(all);
+      margin-left: $space-s;
+    }
+
+    &:hover {
+      i {
+        transform: translateY($space-s);
+      }
+    }
+  }
+
+  &-bg {
+    position: relative;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      background: $color-lightgrey;
+      width: 200%;
+      height: 22%;
+    }
+
+    &:before {
+      transform: translate(-6%, 30%) rotate(-12deg);
+    }
+
+    &:after {
+      top: 0;
+      transform: translate(-25%, 100%) rotate(-24deg);
+    }
+  }
+
+  /* Responsive */
+  @media screen and (min-width: $screen-xs-min) {
+    &_title {
+      font-size: 24px;
+    }
+  }
+
+  @media screen and (min-width: $screen-s-min) {
+    padding-top: $space-l;
+  }
+
+  @media screen and (min-width: $screen-m-min) {
+    &-bg:after {
+      height: 26%;
+      transform: translate(-10%, 100%) rotate(-24deg);
+    }
+  }
+
+  @media screen and (min-width: $screen-l-min) {
+    &-bg {
+      &:before {
+        width: 115%;
+      }
+
+      &:after {
+        width: 125%;
+        transform: translate(-10%, 84%) rotate(-24deg);
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.uam_logo {
+  @include transition(color);
+  font-size: 60px;
+  transition-delay: 0.5s;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  /* Responsive */
+  @media screen and (min-width: $screen-s-min) {
+    font-size: 80px;
+  }
+}

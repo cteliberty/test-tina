@@ -1,0 +1,23 @@
+.uam_pagination {
+  margin-right: $space;
+  color: $color-blue;
+
+  &-prev {
+    i {
+      right: inherit;
+      left: -$space;
+      transform: translateX(0) rotate(-180deg);
+    }
+
+    &:hover {
+      i {
+        transform: translateX(-$space) rotate(-180deg);
+      }
+    }
+  }
+
+  /* Responsive */
+  @media screen and (min-width: $screen-s-min) {
+    margin-right: 0;
+  }
+}

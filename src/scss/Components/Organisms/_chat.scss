@@ -1,0 +1,37 @@
+.uam_chat {
+  @include anim($duration: 0.3s, $name: slideTopMessage, $delay: true, $delayTime: 1s);
+  margin-left: 24px;
+  padding-right: 110px;
+  display: none;
+  flex-direction: column;
+  opacity: 0;
+
+  @keyframes slideTopMessage {
+    from {
+      margin-top: 50px;
+      opacity: 0;
+    }
+    to {
+      margin-top: $space-m;
+      opacity: 1;
+    }
+  }
+
+  /* Responsive */
+  @media screen and (min-width: $screen-s-min) {
+    display: inline-flex;
+  }
+
+  @media screen and (min-width: $screen-l-min) {
+    @keyframes slideTopMessage {
+      from {
+        margin-top: 130px;
+        opacity: 0;
+      }
+      to {
+        margin-top: 120px;
+        opacity: 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+.uam_quote {
+  @include flex($justify: true, $justifyValue: center);
+  margin-top: $space-m;
+  padding: $space-m $space;
+  background: url('../images/bg-quote.jpg') center no-repeat $color-black;
+  background-size: cover;
+  color: $color-white;
+  text-align: center;
+
+  &[data-color="green"] {
+    strong {
+      color: $color-green;
+    }
+  }
+
+  &[data-color="pink"] {
+    strong {
+      color: $color-pink;
+    }
+  }
+
+  &[data-color="blue"] {
+    strong {
+      color: $color-blue;
+    }
+  }
+
+  blockquote {
+    @include fontSize(32px, $space-m);
+    @include title($transform: false);
+    margin: 0 auto;
+    width: 100%;
+    max-width: 800px;
+    transform: translate(0, 0);
+  }
+
+  strong {
+    color: $color-yellow;
+  }
+
+  figcaption {
+    @include fontStyle(14px, 22px, 400);
+    margin-top: $space-m;
+  }
+
+  /* Responsive */
+  @media screen and (min-width: $screen-s-min) {
+    margin-top: $space-l;
+  }
+}

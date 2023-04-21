@@ -1,0 +1,166 @@
+.uam_slideItem {
+  @include fontSize(14px, 22px);
+  @include flex($justify: true, $justifyValue: center, $direction: true);
+  $self: &;
+  padding: 0 $space-m;
+
+  &_profil {
+    margin: -$space-m 0 $space-m;
+    padding-left: $space;
+    position: relative;
+    z-index: 1;
+    max-width: 100%;
+
+    &:before,
+    &:after,
+    img {
+      border: $border;
+    }
+
+    &:before,
+    &:after {
+      @include transition(all);
+      content: '';
+      position: absolute;
+      width: calc(100% - #{$space});
+      height: 100%;
+    }
+
+    img {
+      position: relative;
+      z-index: 3;
+    }
+
+    &:before {
+      top: 5px;
+      right: 5px;
+      z-index: 2;
+      background-color: $color-blue;
+    }
+
+    &:after {
+      top: 14px;
+      right: 14px;
+      z-index: 1;
+      background-color: $color-yellow;
+    }
+
+    &:hover {
+      &:before {
+        right: -11px;
+      }
+
+      &:after {
+        right: -$space;
+      }
+    }
+  }
+
+  &_content {
+    padding-bottom: 24px;
+    margin-left: -$space-m;
+    margin-right: -$space-m;
+    width: calc(100% + #{$space-m});
+    text-align: center;
+  }
+
+  &_name {
+    @include fontSize(32px, 38px);
+    @include title($transform: false);
+  }
+
+  &_role {
+    @include fontSize(24px, 28px);
+    margin-top: $space-s;
+    display: block;
+  }
+
+  &_description {
+    margin-top: 18px;
+    position: relative;
+
+    p {
+      // @include transition($duration: 0.5s);
+      display: inline;
+      background-repeat: no-repeat;
+      background-position: right;
+      background-size: 0 100%;
+      background-image: linear-gradient($color-yellow, $color-yellow);
+    }
+
+    &-hide {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      p {
+        color: transparent;
+        background-image: linear-gradient($color-white, $color-white) !important;
+      }
+    }
+
+    &:hover {
+      p {
+        color: transparent;
+        background-size: 100% 100%;
+      }
+
+      #{$self}_description-hide p {
+        color: $color-black;
+      }
+    }
+  }
+
+  /* Responsive */
+  @media screen and (min-width: $screen-xs-min) {
+    &_profil {
+      margin: -2px 0 $space-m;
+      max-width: 410px;
+    }
+  }
+
+  @media screen and (min-width: $screen-s-min) {
+    &_content {
+      width: 80%;
+    }
+
+    &_name {
+      @include fontSize(24px, 32px);
+    }
+
+    &_role {
+      @include fontSize(18px, 24px);
+    }
+  }
+
+  @media screen and (min-width: $screen-m-min) {
+    padding: 0 $space-l;
+    flex-direction: row;
+
+    &_profil {
+      margin-bottom: 0;
+    }
+
+    &_content {
+      margin: 0;
+      padding-top: 24px;
+      padding-left: 24px;
+      width: calc(100% - 180px);
+      text-align: left;
+    }
+  }
+
+  @media screen and (min-width: $screen-l-min) {
+    padding: 0 108px;
+
+    &_profil {
+      margin: -42px 0 -19px;
+    }
+
+    &_content {
+      padding-top: 45px;
+      padding-left: 60px;
+      width: calc(100% - 410px);
+    }
+  }
+}

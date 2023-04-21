@@ -1,0 +1,77 @@
+.uam_box {
+  $self: &;
+  position: relative;
+
+  &_inner {
+    @include borderBox;
+    @include fontSize(14px, 22px);
+    padding: 24px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+  }
+
+  &-corner,
+  &-corner #{$self}_inner {
+    &:after,
+    &:before {
+      @include borderBox;
+      content: '';
+      position: absolute;
+      z-index: 1;
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  &-corner {
+    &:before,
+    &:after {
+      top: -7px;
+    }
+
+    &:before,
+    #{$self}_inner:before {
+      left: -7px;
+    }
+
+    &:after,
+    #{$self}_inner:after {
+      right: -7px;
+    }
+
+    #{$self}_inner {
+      &:before,
+      &:after {
+        bottom: -7px;
+      }
+    }
+
+    &:before {
+      z-index: 2;
+    }
+  }
+
+  &-step {
+    position: relative;
+
+    &:before {
+      @include transition(all);
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $color-black;
+    }
+
+    &:hover:before {
+      top: -6px;
+      right: -6px;
+    }
+  }
+}

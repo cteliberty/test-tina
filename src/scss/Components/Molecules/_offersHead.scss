@@ -1,0 +1,20 @@
+.uam_offersHead {
+  @include title;
+  @include fontStyle(16px, 19px);
+
+  &.uam_offersLine {
+    display: none;
+  }
+
+  &_item {
+    padding-top: 0;
+    border-bottom: $border;
+  }
+
+  /* Responsive */
+  @media screen and (min-width: $screen-m-min) {
+    &.uam_offersLine {
+      display: table-row;
+    }
+  }
+}

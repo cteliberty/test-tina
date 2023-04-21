@@ -1,0 +1,163 @@
+.uam_step {
+  // Margin
+  &-margin {
+    padding: 18px 0 $space-s !important;
+    position: relative;
+    align-items: flex-start;
+  }
+
+  // Background
+  &-bg {
+    padding-top: $space;
+    position: relative;
+
+    &:before {
+      @include center($x: true);
+      content: '';
+      z-index: -1;
+      top: 0;
+      width: 100vw;
+      height: 100%;
+    }
+
+    // Colors
+    &-eb:before {
+      background-color: $color-grey_eb;
+    }
+
+    &-e1:before {
+      background-color: $color-grey_e1;
+    }
+
+    &-ec:before {
+      background-color: $color-grey_ec;
+    }
+
+    &-white:before {
+      background-color: $color-white;
+    }
+
+    &-purple:before {
+      top: 166px;
+      background-color: $color-purple;
+    }
+
+    &-green:before {
+      background-color: $color-lightgreen;
+    }
+
+    &-blue:before {
+      background-color: $color-blue_5a;
+    }
+
+    &-pink:before {
+      background-color: $color-darkpink;
+    }
+
+    &-lightblue:before {
+      top: 150px;
+      height: 80%;
+      background-color: $color-lightblue;
+    }
+
+    &-black:before {
+      top: 15%;
+      height: 70%;
+      background-color: $color-darkblue;
+    }
+
+    // Gradient
+    &-gradient:before {
+      background: linear-gradient(-90deg, $color-lightgrey 25%, $color-white 100%);
+    }
+
+    &-gradientGrey:before {
+      background: linear-gradient(359.94deg, $color-grey_fa 0.08%, $color-grey_ee 99.98%);
+    }
+
+    &-gradientPurple {
+      &:before {
+        top: -26%;
+        z-index: -2;
+        height: 146%;
+        background: linear-gradient(0deg, $color-grey 25%, $color-lightpurple 100%);
+      }
+
+      &:after {
+        @include center($x: true);
+        content: '';
+        z-index: -1;
+        bottom: -26%;
+        background: url('../images/projects/dune/bg-dune.png') center top no-repeat;
+        background-size: cover;
+        width: 100vw;
+        height: 260px;
+      }
+    }
+  }
+
+  // Column
+  &-column {
+    flex-direction: column-reverse !important;
+
+    .uam_img img {
+      margin: 0 auto;
+    }
+  }
+
+  // Ellipsis
+  &-ellipsis {
+    position: relative;
+    z-index: 1;
+
+    &:before {
+      @include center;
+      content: '';
+      z-index: -1;
+      border-radius: 100%;
+      width: 550px;
+      height: 550px;
+      background-color: $color-purple_f8;
+    }
+  }
+
+  /* Responsive */
+  @media screen and (min-width: $screen-m-min) {
+    &-bg {
+      &-lightblue:before {
+        top: 60px;
+      }
+
+      &-black {
+        margin-top: -$space-l;
+      }
+    }
+
+    &-column .uam_img {
+      margin-top: -144px;;
+      width: 100%;
+    }
+
+    &-ellipsis {
+      &:before {
+        width: 75%;
+        height: 68%;
+      }
+
+      + .uam_stepItem {
+        padding-top: 110px !important;
+      }
+    }
+  }
+
+  @media screen and (min-width: $screen-l-min) {
+    &-bg-lightblue:before {
+      top: 220px;
+      height: 585px;
+    }
+
+    &-column .uam_img {
+      margin-top: -244px
+    }
+  }
+}

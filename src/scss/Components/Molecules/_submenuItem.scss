@@ -1,0 +1,59 @@
+.uam_submenuItem {
+  $self: &;
+
+  &:nth-child(2) #{$self}_link:after {
+    background-color: $burgerColor_red;
+  }
+
+  &:nth-child(3) #{$self}_link:after {
+    background-color: $burgerColor_yellow;
+  }
+
+  &:nth-child(4) #{$self}_link:after {
+    background-color: $burgerColor_brown;
+  }
+
+  &_link {
+    @include title;
+    @include fontSize(28px, 38px);
+    position: relative;
+    color: $color-white;
+
+    small {
+      @include fontSize(16px, $space);
+    }
+
+    &:before {
+      content: '/';
+      padding-right: $space;
+    }
+
+    &:after {
+      @include position;
+      @include transition(all);
+      content: '';
+      z-index: -1;
+      width: 0;
+      height: 100%;
+      background-color: $burgerColor_green;
+    }
+
+    &:hover {
+      color: $color-white;
+      text-decoration: none;
+
+      &:after {
+        width: 100%;
+      }
+    }
+
+    /* Responsive */
+    @media screen and (min-width: $screen-xs-min) {
+      @include fontSize(40px, 50px);
+    }
+
+    @media screen and (min-width: $screen-s-min) {
+      @include fontSize(76px, $space-l);
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.uam_careerItem {
+  $self: &;
+  display: flex;
+  flex-direction: column;
+
+  + #{$self} {
+    padding-top: $space-m;
+  }
+
+  &_title {
+    margin-bottom: $space;
+  }
+
+  &_content {
+    padding: 7px;
+
+    .uam_excerpt {
+      margin-left: 0;
+    }
+  }
+}

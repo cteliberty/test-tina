@@ -1,0 +1,17 @@
+.uam_wrapper {
+  padding-left: $space;
+  padding-right: $space;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: $wrapper;
+
+  /* Responsive */
+  @media screen and (min-width: $screen-s-min) {
+    padding-left: $space-l;
+    padding-right: $space-l;
+  }
+}

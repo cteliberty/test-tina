@@ -1,0 +1,22 @@
+.uam {
+  &_submenu,
+  &_submenu:before {
+    @include position(fixed, true);
+    @include transition(all);
+    opacity: 0;
+    z-index: -1;
+    width: 0;
+    height: 0;
+    transition-delay: 0.3s;
+  }
+
+  &_submenu {
+    @include flex($direction: true, $justify: true, $justifyValue: center);
+
+    &:before {
+      content: '';
+      background-color: $color-yellow;
+      transform: rotate(-10deg) skewX(-10deg);
+    }
+  }
+}

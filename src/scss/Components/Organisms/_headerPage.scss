@@ -1,0 +1,57 @@
+.uam_headerPage {
+  padding-top: $space-m;
+  min-height: calc(100vh - 130px);
+
+  &_title {
+    @include fontSize(48px, 48px);
+    @include title;
+    width: 100%;
+    text-shadow: -1px 1px 0 $color-white;
+  }
+
+  &_breadcrumb,
+  &_team {
+    color: $color-white;
+  }
+
+  &_breadcrumb {
+    @include fontSize(14px, 22px);
+    margin-bottom: $space;
+
+    a {
+      @include fontStyle(18px, 24px, 500);
+      color: $color-white;
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &_team {
+    @include title;
+    @include fontStyle(16px);
+    margin: $space 0;
+  }
+
+  /* Responsive */
+  @media screen and (min-width: $screen-s-min) {
+    padding-top: 140px;
+
+    &_title {
+      @include fontSize(87px, 87px);
+    }
+
+    &_breadcrumb {
+      margin-bottom: $space-l;
+    }
+  }
+
+  @media screen and (min-width: $screen-m-min) {
+    &_title {
+      @include fontSize(128px, 138px);
+      max-width: 68%;
+    }
+  }
+}

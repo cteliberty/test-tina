@@ -1,0 +1,64 @@
+.uam_page {
+  .uam {
+    &_logo,
+    &_headerPage_title > * {
+      color: $color-white;
+    }
+
+    &_headerPage {
+      padding-top: 120px;
+      margin-top: -$space-l;
+      background-size: cover;
+      background-repeat: no-repeat;
+      min-height: 330px;
+      box-sizing: border-box;
+
+      .uam_excerpt {
+        margin-bottom: $space-l;
+
+        &-header {
+          margin-top: $space-m;
+          position: relative;
+          top: 0 !important;
+        }
+      }
+    }
+
+    &_headerExcerpt {
+      margin-top: 0;
+      margin-bottom: 0;
+      width: 100%;
+      flex-direction: row-reverse;
+      align-items: baseline;
+    }
+
+    &_viewport_body {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Responsive */
+  @media screen and (min-width: $screen-s-min) {
+    .uam_headerPage {
+      padding-top: 300px;
+      margin-top: -130px;
+      min-height: 600px;
+    }
+  }
+
+  @media screen and (min-width: $screen-m-min) {
+    .uam_headerPage_title {
+      max-width: 100%;
+    }
+  }
+
+  @media screen and (min-width: $screen-l-min) {
+    .uam_headerPage .uam_excerpt {
+      margin-bottom: $space-xl;
+
+      &-header {
+        margin-top: -51px;
+      }
+    }
+  }
+}

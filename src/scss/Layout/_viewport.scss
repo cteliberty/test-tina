@@ -1,0 +1,23 @@
+.uam_viewport {
+  @include fontSize(18px, 28px);
+  background-color: $color-white;
+  overflow: hidden;
+
+  &_body,
+  &_content {
+    position: relative;
+    z-index: 0;
+  }
+
+  &_body {
+    padding-bottom: 90px;
+    margin-bottom: 58px;
+  }
+
+  /* Responsive */
+  @media screen and (min-width: $screen-m-min) {
+    &_body {
+      padding-bottom: 200px;
+    }
+  }
+}

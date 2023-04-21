@@ -1,0 +1,94 @@
+.uam_intro {
+  @include flex($justify: true, $justifyValue: center, $direction: true);
+  position: relative;
+  background-color: $color-black;
+  width: 100vw;
+  min-height: 100vh;
+
+  &_footer {
+    @include flex($align: flex-end, $justify: true, $justifyValue: center);
+    padding-top: $space;
+    color: $color-white;
+    text-align: center;
+
+    &.uam_wrapper {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .uam_link_arrow {
+      padding-bottom: 4px;
+      position: fixed;
+      bottom: 108px;
+      right: $space;
+      color: $color-white;
+
+      i {
+        font-size: 30px;
+        transform: translate(-36px, $space-m);
+
+        &:before {
+          content: "\e901";
+        }
+      }
+
+      &:hover {
+        i {
+          transform: translate(-36px, 60px);
+        }
+      }
+    }
+
+    address {
+      @include fontSize(12px, 16px);
+      font-style: normal;
+    }
+  }
+
+  .uam_logo {
+    font-size: 200px;
+  }
+
+  /* Responsive */
+  @media screen and (min-width: $screen-m-min) {
+    &_footer {
+      padding-bottom: $space-m;
+      bottom: 60px;
+      left: 50%;
+      transform: translate(-50%, 0);
+      justify-content: space-between;
+      text-align: left;
+
+      &.uam_wrapper {
+        padding-left: $space-l;
+        padding-right: $space-l;
+        position: fixed;
+      }
+
+      .uam_link_arrow {
+        position: relative;
+        bottom: 0;
+        right: 0;
+
+        i {
+          font-size: 90px;
+          transform: none;
+
+          &:before {
+            content: "\e902";
+          }
+        }
+
+        &:hover {
+          i {
+            transform: translateX(20px);
+          }
+        }
+      }
+    }
+
+    .uam_logo {
+      @include center;
+    }
+  }
+}

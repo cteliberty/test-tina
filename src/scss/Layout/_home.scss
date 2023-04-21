@@ -1,0 +1,59 @@
+.uam_home {
+  &.uam_viewport {
+    background-color: $color-black;
+  }
+
+  .uam {
+    &_body {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      height: 100%;
+    }
+
+    &_logo,
+    &_projectItem,
+    &_projectItem a {
+      color: $color-white;
+    }
+
+    &_headerPage_title {
+      text-shadow: -1px 1px 0 $color-black;
+    }
+
+    &_headerExcerpt {
+      margin-top: 0;
+
+      &_title:after {
+        background-color: $color-white;
+      }
+    }
+
+    &_projectItem {
+      padding-top: 0;
+      height: 100vh !important;
+
+      &_inner {
+        @include flex;
+        height: 100%;
+      }
+
+      &_bg {
+        top: 0;
+        height: auto;
+      }
+    }
+  }
+
+  /* Responsive */
+  @media screen and (min-width: $screen-s-min) {
+    .uam_headerExcerpt {
+      margin-top: $space-l;
+    }
+  }
+
+  @media screen and (min-width: $screen-m-min) {
+    .uam_projectItem_bg {
+      @include center($y: true);
+    }
+  }
+}

@@ -1,0 +1,31 @@
+.uam_form {
+  padding: $space-m 0 90px;
+  background-color: $color-blue;
+  color: $color-white;
+
+  &_title {
+    @include fontSize(24px, 32px);
+    @include title($transform: false);
+  }
+
+  &_description {
+    @include title($transform: false, $bold: 600);
+  }
+
+  &_content {
+    max-width: 520px;
+  }
+
+  > * {
+    @include flex($justify: true, $justifyValue: space-evenly, $direction: true);
+    row-gap: $space;
+  }
+
+  /* Responsive */
+  @media screen and (min-width: $screen-m-min) {
+    > * {
+      column-gap: $space;
+      flex-direction: row;
+    }
+  }
+}

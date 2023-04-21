@@ -1,0 +1,47 @@
+.uam_cursor {
+  // @include transition($property: mix-blend-mode);
+  @include flex($justify: true, $justifyValue: center);
+  position: fixed;
+  z-index: 3;
+  pointer-events: none;
+  mix-blend-mode: exclusion;
+
+  span {
+    // @include transition($property: transform);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: $color-blue;
+  }
+
+  &-hover {
+    span {
+      transform:translate(-50%, -50%) scale(14);
+    }
+  }
+
+  &-custom {
+    &:before,
+    &:after {
+      z-index: 1;
+      color: $color-white;
+    }
+
+    &:before {
+      @include fontSize(18px, 24px);
+      @include center;
+      content: attr(data-link);
+      text-transform: lowercase;
+      font-weight: 500;
+    }
+
+    &:after {
+      content: "\e901";
+      font-family: $font-icon;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, 38px);
+      font-size: 30px;
+    }
+  }
+}

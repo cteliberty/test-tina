@@ -1,0 +1,44 @@
+.uam_contact {
+  margin-bottom: $space-m;
+  display: flex;
+  flex-direction: column;
+
+  &.uam_block {
+    padding-top: 0;
+    margin-top: -$space-l;
+    overflow: inherit;
+  }
+
+  &_map {
+    margin-bottom: $space-l;
+    border: $border;
+  }
+
+  &_content .uam_excerpt {
+    width: calc(100% - #{$space});
+  }
+
+  &_item {
+    margin-top: $space;
+  }
+
+  &_title {
+    font-weight: 900;
+  }
+
+  /* Responsive */
+  @media screen and (min-width: $screen-l-min) {
+    flex-direction: row;
+
+    &_map {
+      margin-bottom: 0;
+      width: calc(100% - 514px);
+    }
+
+    &_content {
+      margin-left: $space;
+      width: 100%;
+      max-width: 494px;
+    }
+  }
+}

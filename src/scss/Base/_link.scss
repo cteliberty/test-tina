@@ -1,0 +1,10 @@
+a {
+  @include transition(all);
+  color: $color-black;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-blue;
+    text-decoration: underline;
+  }
+}

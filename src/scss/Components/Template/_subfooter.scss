@@ -1,0 +1,5 @@
+.uam_subfooter {
+  @include flex($justify: true, $justifyValue: flex-end);
+  position: relative;
+  z-index: 2;
+}

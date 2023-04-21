@@ -1,0 +1,112 @@
+// Flex
+@mixin flex($align: center, $direction: false, $justify: false, $justifyValue: space-between, $directionValue: column) {
+  display: flex;
+  align-items: $align;
+  @if $justify {
+    justify-content: $justifyValue;
+  }
+  @if $direction {
+    flex-direction: $directionValue;
+  }
+}
+
+// Position
+@mixin position($position: absolute, $right: false, $bottom: false) {
+  position: $position;
+  @if $bottom {
+    bottom: 0;
+  } @else {
+    top: 0;
+  }
+  @if $right {
+    right: 0;
+  } @else {
+    left: 0;
+  }
+}
+
+@mixin center($position: absolute, $x: false, $y: false) {
+  position: $position;
+  @if $x {
+    left: 50%;
+    transform: translate(-50%, 0);
+  } @else if $y {
+    top: 50%;
+    transform: translate(0, -50%);
+  } @else {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+// Background
+@mixin bg($repeat: no-repeat, $position: right, $size: auto) {
+  background-size: $size;
+  background-repeat: $repeat;
+  background-position: $position;
+}
+
+// Animation & transition
+@mixin anim($duration: 0.6s, $function: linear, $name: '', $mode: forwards,  $delay: false, $delayTime: 0.8s) {
+  animation: $duration $function $name;
+  animation-fill-mode: $mode;
+  @if $delay {
+    animation-delay: $delayTime;
+  }
+}
+
+@function unfoldTransition ($transition) {
+  $property: all;
+  $duration: 0.3s;
+  $easing: ease-in-out;
+  $defaultProperties: ($property, $duration, $easing);
+
+  $unfoldedTransition: ();
+  @for $i from 1 through length($defaultProperties) {
+    $p: null;
+    @if $i <= length($transition) {
+      $p: nth($transition, $i)
+    } @else {
+      $p: nth($defaultProperties, $i)
+    }
+    $unfoldedTransition: append($unfoldedTransition, $p);
+  }
+
+  @return $unfoldedTransition;
+}
+
+@mixin transition($properties...) {
+  $unfoldedTransitions: ();
+  @each $property in $properties {
+    $unfoldedTransitions: append($unfoldedTransitions, unfoldTransition($property), comma);
+  }
+
+  transition: $unfoldedTransitions;
+}
+
+// Text
+@mixin fontSize($size, $lineHeight: ($size + 4px)) {
+  font-size: $size;
+  line-height: $lineHeight;
+}
+
+@mixin fontStyle($size, $lineHeight: ($size + 4px), $weight: 900) {
+  @include fontSize($size, $lineHeight);
+  font-weight: $weight;
+}
+
+@mixin title($transform: true, $bold: 900) {
+  font-family: $font-title;
+  font-weight: $bold;
+  @if $transform {
+    text-transform: uppercase;
+  }
+}
+
+// Border box
+@mixin borderBox {
+  border: $border;
+  border-radius: 1px;
+  background-color: $color-white;
+}
