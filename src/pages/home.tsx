@@ -420,7 +420,7 @@ const HomePage: React.FC<PageProps> = () => {
               <ul>
                 <li>
                   <h3 className="uam_headerExcerpt_title">Qui ?</h3>
-                  <StaticImage src="../images/projects/data/logo-data_light.png" alt="Abraca-data !" />
+                  <StaticImage src="../images/projects/skipower/logo-skipower_light.png" alt="Abraca-data !" />
                 </li>
                 <li>
                   <h3 className="uam_headerExcerpt_title">Quoi ?</h3>
