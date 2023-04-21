@@ -7,7 +7,7 @@ import HomePage from "./home";
 import '../scss/main.scss';
 
 const IndexPage: React.FC<PageProps> = () => {
-  const cursorRef = React.useRef<HTMLDivElement>(null);
+  // const cursorRef = React.useRef<HTMLDivElement>(null);
 
   // React.useEffect(() => {
   //   console.log('Cursor', Cursor);

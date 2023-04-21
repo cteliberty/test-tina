@@ -1,49 +1,48 @@
 import * as React from "react"
-import type { HeadFC, PageProps } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import LocomotiveScroll from 'locomotive-scroll';
+// import LocomotiveScroll from 'locomotive-scroll';
 import 'locomotive-scroll/dist/locomotive-scroll.min.css';
 
-const HomePage: React.FC<PageProps> = () => {
-  React.useEffect(() => {
-    const back = document.querySelector('.uam_back');
+const HomePage: React.FC = () => {
+  // React.useEffect(() => {
+  //   const back = document.querySelector('.uam_back');
 
-    let optionScroll = {
-      el: document.querySelector('[data-scroll-container]'),
-    };
+  //   let optionScroll = {
+  //     el: document.querySelector('[data-scroll-container]'),
+  //   };
 
-    optionScroll = {
-      el: document.querySelector('[data-scroll-container]'),
-      smooth: true,
-      direction: 'horizontal',
-      tablet: { smooth: true },
-      smartphone: { smooth: true },
-    };
+  //   optionScroll = {
+  //     el: document.querySelector('[data-scroll-container]'),
+  //     smooth: true,
+  //     direction: 'horizontal',
+  //     tablet: { smooth: true },
+  //     smartphone: { smooth: true },
+  //   };
 
-    const scroll = new LocomotiveScroll(optionScroll);
-    new ResizeObserver(
-      () => scroll.update()).observe(document.querySelector('[data-scroll-container]')
-    );
+  //   const scroll = new LocomotiveScroll(optionScroll);
+  //   new ResizeObserver(
+  //     () => scroll.update()).observe(document.querySelector('[data-scroll-container]')
+  //   );
 
-    // Back to top
-    if (back && back) {
-      const backHide = 'uam_back-hide';
+  //   // Back to top
+  //   if (back && back) {
+  //     const backHide = 'uam_back-hide';
 
-      scroll.on('call', (value:string, way:string) => {
-        if (value === 'toggleBackToTop') {
-          if (way === 'enter') {
-            back.classList.add(backHide);
-          } else {
-            back.classList.remove(backHide);
-          }
-        }
-      });
-    }
+  //     scroll.on('call', (value:string, way:string) => {
+  //       if (value === 'toggleBackToTop') {
+  //         if (way === 'enter') {
+  //           back.classList.add(backHide);
+  //         } else {
+  //           back.classList.remove(backHide);
+  //         }
+  //       }
+  //     });
+  //   }
 
-    return () => {
-      scroll.destroy();
-    }
-  }, []);
+  //   return () => {
+  //     scroll.destroy();
+  //   }
+  // }, []);
 
   return (
     <>
@@ -444,5 +443,3 @@ const HomePage: React.FC<PageProps> = () => {
 }
 
 export default HomePage
-
-export const Head: HeadFC = () => <title>Home Page</title>
