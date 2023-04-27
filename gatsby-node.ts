@@ -1,6 +1,6 @@
 const express = require("express");
 
-exports.onCreateDevServer = ({ app }) => {
+exports.onCreateDevServer = ({ app }: any) => {
   app.use("/admin", express.static("public/admin"));
 };
 
