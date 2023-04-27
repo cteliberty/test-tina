@@ -1,47 +1,112 @@
 import * as React from "react"
-import type { HeadFC, PageProps } from "gatsby"
+import { HeadFC, graphql, PageProps } from "gatsby"
 
-import HomePage from "./home";
-// import Cursor from '../js/Cursor';
-// const Cursor = require('../js/Cursor')
+import Layout from '../components/Layout';
+import ProjectItem, {ProjectItemProps} from '../components/ProjectItem';
 import '../scss/main.scss';
 
-const IndexPage: React.FC<PageProps> = () => {
-  // const cursorRef = React.useRef<HTMLDivElement>(null);
+type projectNode = {
+  id: string,
+  excerpt: string,
+  frontmatter: ProjectItemProps,
+}
+interface IndexPageProps {
+  data: {
+    allMdx: {
+      nodes: [projectNode]
+    }
+  }
+}
 
-  // React.useEffect(() => {
-  //   console.log('Cursor', Cursor);
-  //     // throw new Error("my error message");
-  //     // break foo;
-  //     // const cursor = new (Cursor as any)(cursorRef.current);
-  //     // cursor.init();
-  // }, [cursorRef]);
+const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
+  const header = (
+    <header id="uam-header" className="uam_header" data-scroll data-scroll-repeat data-scroll-call="toggleBackToTop">
+      <div className="uam_wrapper">
+        <a className="uam_logo" href="/index.html">
+          <i className="uam_icon_logo"></i>
+        </a>
 
-  return (
-    <>
-      {/* <div className="uam_cursor" ref={cursorRef}><span></span></div> */}
-
-      <div id="swup" className="uam_viewport uam_home" data-scroll-container>
-
-        <div className="uam_viewport_body">
-          <HomePage />
-        </div>
-      </div>
-
-      <footer className="uam_footer" data-scroll data-scroll-sticky data-scroll-target="#uam-header">
-        <div className="uam_wrapper">
-          <a href="/about" className="uam_link uam_footer_contact">
-            <i className="uam_icon_coffee"></i> <span>Vous avez un projet ? <span className="uam_link-underline">On a du café !</span></span>
+        <div className="uam_menu">
+          <a href="#" className="uam_link uam_menu_burger">
+            <i className="uam_icon_burger"></i>
           </a>
-          <div className="uam_footer_copyright uam_text-tertiary" data-before="UAM" data-after="2022">
-            <span>Made with</span> <i className="uam_icon_heart"></i> <span>by unautremonde © 2022</span>
+          <div className="uam_submenu">
+            <ul className="uam_wrapper">
+              <li className="uam_submenuItem">
+                <a className="uam_submenuItem_link" href="/index.html">Tous nos projets</a>
+              </li>
+              <li className="uam_submenuItem">
+                <a className="uam_submenuItem_link" href="/about.html">L'agence <small>(sans risques)</small></a>
+              </li>
+              <li className="uam_submenuItem">
+                <a className="uam_submenuItem_link" href="/join.html">On recrute</a>
+              </li>
+              <li className="uam_submenuItem">
+                <a className="uam_submenuItem_link" href="/contact.html">Contact</a>
+              </li>
+            </ul>
           </div>
         </div>
-      </footer>
+      </div>
+    </header>
+  );
 
-    </>
+  return (
+    <Layout header={header}>
+      <div className="uam_intro" data-scroll-section>
+        <a className="uam_logo" href="index.html">
+          <i className="uam_icon_logo" data-scroll data-scroll-speed="1"></i>
+        </a>
+        <div className="uam_intro_footer uam_wrapper">
+          <address>
+            <h1>un autre monde</h1>
+            <p>108 avenue du lac Léman</p>
+            <p>Savoie Technolac - Bat. Andromède</p>
+            <p>73372 Le Bourget-du-Lac</p>
+          </address>
+          <a className="uam_link uam_link_arrow" href="#uam-project" data-scroll-to data-no-swup>
+            scroll <i className="uam_icon_arrow-long"></i>
+          </a>
+        </div>
+      </div>
+      {data.allMdx.nodes.map((node:projectNode) => (
+        <React.Fragment key={node.id}>
+          <ProjectItem {...node.frontmatter} /> 
+        </React.Fragment>
+      ))
+      }
+    </Layout>
   )
 }
+
+export const query = graphql`
+  query IndexPage {
+    allMdx(sort: { frontmatter: { date: DESC }}) {
+      nodes {
+        frontmatter {
+          date(formatString: "MMMM D, YYYY")
+          name,
+          title_home,
+          slug,
+          image {
+            childImageSharp {
+              gatsbyImageData(layout: CONSTRAINED)
+            }
+          }
+          who {
+            childImageSharp {
+              gatsbyImageData(layout: CONSTRAINED)
+            }
+          }
+          what,
+          how,
+        }
+        id
+        excerpt
+      }
+    }
+  }
+`;
 
 export default IndexPage
 
