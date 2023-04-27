@@ -1,30 +1,29 @@
 import * as React from "react"
-import { GatsbyImage, getImage, ImageDataLike, IGatsbyImageData } from 'gatsby-plugin-image'
+// import { GatsbyImage, getImage, ImageDataLike, IGatsbyImageData } from 'gatsby-plugin-image'
+// import TinaImage from "./TinaImage";
+// import { StaticImage } from "gatsby-plugin-image"
 
 export interface ProjectItemProps {
-  date: string,
-  image: ImageDataLike,
+  image_home: string,
   name: string,
   slug: string,
   title_home: string,
   what: string,
-  who: ImageDataLike,
+  who: string,
   how: string,
 }
 
 const ProjectItem: React.FC<ProjectItemProps> = (props) => {
-  const { date, image, name, slug, title_home, what, who, how } = props;
-  const gatsbyImage:IGatsbyImageData | undefined = getImage(image);
-  const gatsbyWho:IGatsbyImageData | undefined = getImage(who);
+  const { image_home, slug, title_home, what, who, how } = props;
+  // const gatsbyImage:IGatsbyImageData | undefined = getImage(image);
+  // const gatsbyWho:IGatsbyImageData | undefined = getImage(who);
 
   return (
     <div className="uam_projectItem" data-scroll-section>
-      <h2>{title_home}</h2>
-      <p>Posted: {date}</p>
       <div className="uam_projectItem_inner">
         <div className="uam_wrapper">
           <div className="uam_projectItem_bg">
-            {gatsbyImage && <GatsbyImage image={gatsbyImage} alt={title_home} />}
+            <img src={image_home} alt={title_home} />
           </div>
 
           <h2 className="uam_headerPage_title" data-scroll data-scroll-speed="1">
@@ -38,7 +37,7 @@ const ProjectItem: React.FC<ProjectItemProps> = (props) => {
               <li>
                 <h3 className="uam_headerExcerpt_title">Qui ?</h3>
                 <p>
-                  {gatsbyWho && <GatsbyImage image={gatsbyWho} alt={name} />}
+                  <img src={who} alt={title_home} />
                 </p>
               </li>
               <li>
