@@ -1,5 +1,9 @@
 import type { GatsbyConfig } from "gatsby";
 
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `UAM Website`,
@@ -17,6 +21,13 @@ const config: GatsbyConfig = {
     "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID, //`your_space_id_grab_it_from_contentful`,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN, //`your_token_id_grab_it_from_contentful`,
+      },
+    },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {

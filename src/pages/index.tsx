@@ -5,15 +5,10 @@ import Layout from '../components/Layout';
 import ProjectItem, {ProjectItemProps} from '../components/ProjectItem';
 import '../scss/main.scss';
 
-type projectNode = {
-  id: string,
-  excerpt: string,
-  frontmatter: ProjectItemProps,
-}
 interface IndexPageProps {
   data: {
-    allMdx: {
-      nodes: [projectNode]
+    allContentfulProjet: {
+      nodes: ProjectItemProps[]
     }
   }
 }
@@ -69,40 +64,30 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
           </a>
         </div>
       </div>
-      {data.allMdx.nodes.map((node:projectNode) => (
+      {data.allContentfulProjet.nodes.map((node:ProjectItemProps) => (
         <React.Fragment key={node.id}>
-          <ProjectItem {...node.frontmatter} /> 
+          <ProjectItem {...node} />
         </React.Fragment>
-      ))
-      }
+      ))}
     </Layout>
   )
 }
 
 export const query = graphql`
-  query IndexPage {
-    allMdx(sort: { frontmatter: { date: DESC }}) {
+  query projectCollectionQuery {
+    allContentfulProjet {
       nodes {
-        frontmatter {
-          date(formatString: "MMMM D, YYYY")
-          name,
-          title_home,
-          slug,
-          image {
-            childImageSharp {
-              gatsbyImageData(layout: CONSTRAINED)
-            }
-          }
-          who {
-            childImageSharp {
-              gatsbyImageData(layout: CONSTRAINED)
-            }
-          }
-          what,
-          how,
-        }
-        id
-        excerpt
+        id,
+        title,
+        image {
+          gatsbyImageData(layout: CONSTRAINED)
+        },
+        slug,
+        who {
+          gatsbyImageData(layout: CONSTRAINED)
+        },
+        what,
+        how,
       }
     }
   }

@@ -2,29 +2,28 @@ import * as React from "react"
 import { GatsbyImage, getImage, ImageDataLike, IGatsbyImageData } from 'gatsby-plugin-image'
 
 export interface ProjectItemProps {
+  id: string,
   date: string,
   image: ImageDataLike,
-  name: string,
   slug: string,
   title_home: string,
-  what: string,
   who: ImageDataLike,
+  what: string,
   how: string,
 }
 
 const ProjectItem: React.FC<ProjectItemProps> = (props) => {
-  const { date, image, name, slug, title_home, what, who, how } = props;
+  const { image, slug, title_home, what, who, how } = props;
   const gatsbyImage:IGatsbyImageData | undefined = getImage(image);
   const gatsbyWho:IGatsbyImageData | undefined = getImage(who);
 
   return (
     <div className="uam_projectItem" data-scroll-section>
-      <h2>{title_home}</h2>
-      <p>Posted: {date}</p>
       <div className="uam_projectItem_inner">
         <div className="uam_wrapper">
           <div className="uam_projectItem_bg">
             {gatsbyImage && <GatsbyImage image={gatsbyImage} alt={title_home} />}
+            {/* {title_home} */}
           </div>
 
           <h2 className="uam_headerPage_title" data-scroll data-scroll-speed="1">
@@ -38,7 +37,8 @@ const ProjectItem: React.FC<ProjectItemProps> = (props) => {
               <li>
                 <h3 className="uam_headerExcerpt_title">Qui ?</h3>
                 <p>
-                  {gatsbyWho && <GatsbyImage image={gatsbyWho} alt={name} />}
+                  {gatsbyWho && <GatsbyImage image={gatsbyWho} alt={title_home} />}
+                  {/* {who} */}
                 </p>
               </li>
               <li>
