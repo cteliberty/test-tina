@@ -1,4 +1,14 @@
 import type { GatsbyConfig } from "gatsby";
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
+const routes = [
+  {
+    type: "project",
+    path: "/projects/:uid",
+  },
+];
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -16,7 +26,17 @@ const config: GatsbyConfig = {
     "gatsby-plugin-image",
     "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
+    "gatsby-transformer-sharp"
+    ,'gatsby-plugin-image',
+    {
+      resolve: 'gatsby-source-prismic',
+      options: {
+        repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
+        accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+        customTypesApiToken: process.env.PRISMIC_CUSTOM_TYPES_API_TOKEN,
+        routes,
+      },
+    },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {

@@ -81,24 +81,23 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
 
 export const query = graphql`
   query IndexPage {
-    allMdx(sort: { frontmatter: { date: DESC }}) {
+    allMdx {
       nodes {
         frontmatter {
-          date(formatString: "MMMM D, YYYY")
           name,
           title_home,
           slug,
-          image {
-            childImageSharp {
-              gatsbyImageData(layout: CONSTRAINED)
-            }
-          }
-          who {
-            childImageSharp {
-              gatsbyImageData(layout: CONSTRAINED)
-            }
-          }
+          // image {
+          //   childImageSharp {
+          //     gatsbyImageData(layout: CONSTRAINED)
+          //   }
+          // }
           what,
+          // who {
+          //   childImageSharp {
+          //     gatsbyImageData(layout: CONSTRAINED)
+          //   }
+          // }
           how,
         }
         id
