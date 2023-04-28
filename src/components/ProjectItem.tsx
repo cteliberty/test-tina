@@ -7,15 +7,16 @@ export interface ProjectItemProps {
   image: ImageDataLike,
   slug: string,
   title_home: string,
-  who: ImageDataLike,
+  who?: ImageDataLike,
+  who_text?: string,
   what: string,
   how: string,
 }
 
 const ProjectItem: React.FC<ProjectItemProps> = (props) => {
-  const { image, slug, title_home, what, who, how } = props;
+  const { image, slug, title_home, who, who_text, what, how } = props;
   const gatsbyImage:IGatsbyImageData | undefined = getImage(image);
-  const gatsbyWho:IGatsbyImageData | undefined = getImage(who);
+  const gatsbyWho:IGatsbyImageData | undefined = who ? getImage(who) : undefined;
 
   return (
     <div className="uam_projectItem" data-scroll-section>
@@ -37,8 +38,10 @@ const ProjectItem: React.FC<ProjectItemProps> = (props) => {
               <li>
                 <h3 className="uam_headerExcerpt_title">Qui ?</h3>
                 <p>
-                  {gatsbyWho && <GatsbyImage image={gatsbyWho} alt={title_home} />}
-                  {/* {who} */}
+                  {
+                    who_text? who_text :
+                    gatsbyWho && <GatsbyImage image={gatsbyWho} alt={title_home} />
+                  }
                 </p>
               </li>
               <li>

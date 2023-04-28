@@ -31,7 +31,7 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        "icon": "src/images/icon.png"
+        "icon": "./src/images/favicon.png"
       }
     },
      {
@@ -44,7 +44,7 @@ const config: GatsbyConfig = {
     }, {
       resolve: 'gatsby-source-filesystem',
       options: {
-        "name": "fonts",
+        "name": "static/fonts",
         "path": "./src/fonts/"
       },
       __key: "fonts"

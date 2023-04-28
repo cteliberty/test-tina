@@ -7,8 +7,8 @@ import '../scss/main.scss';
 
 interface IndexPageProps {
   data: {
-    allContentfulProjet: {
-      nodes: ProjectItemProps[]
+    contentfulHome: {
+      project: ProjectItemProps[]
     }
   }
 }
@@ -64,7 +64,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
           </a>
         </div>
       </div>
-      {data.allContentfulProjet.nodes.map((node:ProjectItemProps) => (
+      {data.contentfulHome.project.map((node:ProjectItemProps) => (
         <React.Fragment key={node.id}>
           <ProjectItem {...node} />
         </React.Fragment>
@@ -74,20 +74,21 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
 }
 
 export const query = graphql`
-  query projectCollectionQuery {
-    allContentfulProjet {
-      nodes {
-        id,
-        title,
+  query homeEntryQuery {
+    contentfulHome {
+      project {
+        id
+        title
         image {
-          gatsbyImageData(layout: CONSTRAINED)
-        },
-        slug,
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+        slug
         who {
-          gatsbyImageData(layout: CONSTRAINED)
-        },
-        what,
-        how,
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+        who_text,
+        what
+        how
       }
     }
   }
