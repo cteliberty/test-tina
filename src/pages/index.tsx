@@ -3,7 +3,6 @@ import { HeadFC, graphql, PageProps } from "gatsby"
 
 import Layout from '../components/Layout';
 import ProjectItem, {ProjectItemProps} from '../components/ProjectItem';
-import '../scss/main.scss';
 
 interface IndexPageProps {
   data: {

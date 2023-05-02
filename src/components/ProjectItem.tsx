@@ -23,8 +23,7 @@ const ProjectItem: React.FC<ProjectItemProps> = (props) => {
       <div className="uam_projectItem_inner">
         <div className="uam_wrapper">
           <div className="uam_projectItem_bg">
-            {gatsbyImage && <GatsbyImage image={gatsbyImage} alt={title_home} />}
-            {/* {title_home} */}
+             {gatsbyImage && <GatsbyImage image={gatsbyImage} alt={title_home} />}
           </div>
 
           <h2 className="uam_headerPage_title" data-scroll data-scroll-speed="1">
@@ -39,8 +38,8 @@ const ProjectItem: React.FC<ProjectItemProps> = (props) => {
                 <h3 className="uam_headerExcerpt_title">Qui ?</h3>
                 <p>
                   {
-                    who_text? who_text :
-                    gatsbyWho && <GatsbyImage image={gatsbyWho} alt={title_home} />
+                    gatsbyWho ? <GatsbyImage image={gatsbyWho} alt={title_home} /> :
+                    who_text
                   }
                 </p>
               </li>

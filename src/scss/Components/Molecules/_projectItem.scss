@@ -14,7 +14,8 @@
     height: 70%;
     overflow: hidden;
 
-    img {
+    img,
+    .gatsby-image-wrapper {
       width: 60%;
       height: 100%;
       object-fit: cover;
@@ -38,7 +39,8 @@
   }
 
   @media screen and (min-width: $screen-m-min) {
-    &_bg {
+    &_bg,
+    .gatsby-image-wrapper {
       right: -15%;
 
       img {
@@ -53,7 +55,8 @@
       max-width: 900px;
       overflow: initial;
 
-      img {
+      img,
+      .gatsby-image-wrapper {
         width: 90%;
       }
     }
