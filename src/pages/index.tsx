@@ -1,5 +1,5 @@
 import * as React from "react"
-import { HeadFC, graphql, PageProps } from "gatsby"
+import { HeadFC, graphql } from "gatsby"
 
 import Layout from '../components/Layout';
 import ProjectItem, {ProjectItemProps} from '../components/ProjectItem';
@@ -83,7 +83,7 @@ export const query = graphql`
         }
         slug
         who {
-          gatsbyImageData(layout: FULL_WIDTH)
+          gatsbyImageData(layout: CONSTRAINED)
         }
         who_text,
         what

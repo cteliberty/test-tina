@@ -33,36 +33,7 @@ const config: GatsbyConfig = {
       options: {
         "icon": "./src/images/favicon.png"
       }
-    },
-     {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        "name": "images",
-        "path": "./src/images/"
-      },
-      __key: "images"
-    }, {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        "name": "static/fonts",
-        "path": "./src/fonts/"
-      },
-      __key: "fonts"
-    }, {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        "name": "pages",
-        "path": "./src/pages/"
-      },
-      __key: "pages"
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: `project`,
-        path: `${__dirname}/data/project`,
-      }
-    },
+    }
   ],
 };
 
