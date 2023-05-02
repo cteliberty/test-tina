@@ -35,7 +35,7 @@ $burgerColor_brown: #663a13;
 
 // Space
 $space: 20px;
-$space-s: ($space / 2); //10px
+$space-s: $space * 0.5; //10px
 $space-m: $space * 2; //40px
 $space-l: $space-m * 2; //80px
 $space-xl: 138px;
