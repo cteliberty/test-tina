@@ -6,7 +6,7 @@ export interface ProjectItemProps {
   date: string,
   image: ImageDataLike,
   slug: string,
-  title_home: string,
+  title: string,
   who?: ImageDataLike,
   who_text?: string,
   what: string,
@@ -14,7 +14,7 @@ export interface ProjectItemProps {
 }
 
 const ProjectItem: React.FC<ProjectItemProps> = (props) => {
-  const { image, slug, title_home, who, who_text, what, how } = props;
+  const { image, slug, title, who, who_text, what, how } = props;
   const gatsbyImage:IGatsbyImageData | undefined = getImage(image);
   const gatsbyWho:IGatsbyImageData | undefined = who ? getImage(who) : undefined;
 
@@ -23,12 +23,12 @@ const ProjectItem: React.FC<ProjectItemProps> = (props) => {
       <div className="uam_projectItem_inner">
         <div className="uam_wrapper">
           <div className="uam_projectItem_bg">
-             {gatsbyImage && <GatsbyImage image={gatsbyImage} alt={title_home} />}
+             {gatsbyImage && <GatsbyImage image={gatsbyImage} alt={title} />}
           </div>
 
           <h2 className="uam_headerPage_title" data-scroll data-scroll-speed="1">
             <a href={slug} className="uam_link" data-custom-link="true" data-link="Découvrir">
-              {title_home}
+              {title}
             </a>
           </h2>
 
@@ -38,7 +38,7 @@ const ProjectItem: React.FC<ProjectItemProps> = (props) => {
                 <h3 className="uam_headerExcerpt_title">Qui ?</h3>
                 <p>
                   {
-                    gatsbyWho ? <GatsbyImage image={gatsbyWho} alt={title_home} /> :
+                    gatsbyWho ? <GatsbyImage image={gatsbyWho} alt={title} as="span" /> :
                     who_text
                   }
                 </p>

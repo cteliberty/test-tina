@@ -11,22 +11,23 @@ const Cursor = ($cursor: HTMLDivElement|null) => {
         $cursor.classList.remove('uam_cursor-hover');
       };
 
-      const editCursor = (event: MouseEvent) => {
+        const editCursor = (event: MouseEvent) => {
         const { clientX: x, clientY: y } = event;
 
-        $cursor.style = {'left': `${x}px`};
-        $cursor.style = {'top': `${y}px`};
-      };
+        $cursor.style.left = `${x}px`;
+        $cursor.style.top = `${y}px`;
+      }
 
       refreshCursor();
       window.addEventListener('mousemove', editCursor);
 
       $link.forEach(($element: HTMLElement) => {
         $element.addEventListener('mouseover', (event: MouseEvent) => {
-          if (event.target) {
-            console.log(event.target);
-            const linkText = event.target.dataset.dataLink;
-            const linkCustom = event.target.dataset.customLink;
+          const { target } = event;
+
+          if (target instanceof HTMLElement) {
+            const linkText = target.dataset.link;
+            const linkCustom = target.dataset.customLink;
   
             if (linkCustom === 'true') {
               $cursor.dataset.link = linkText;
@@ -34,7 +35,7 @@ const Cursor = ($cursor: HTMLDivElement|null) => {
             }
           }
   
-          $cursor.classList.remove('uam_cursor-hover');
+          $cursor.classList.add('uam_cursor-hover');
         });
   
         $element.addEventListener('mouseout', () => refreshCursor());

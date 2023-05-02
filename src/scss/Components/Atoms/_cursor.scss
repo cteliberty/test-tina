@@ -1,6 +1,7 @@
 .uam_cursor {
   // @include transition($property: mix-blend-mode);
   @include flex($justify: true, $justifyValue: center);
+  transition: mix-blend-mode 0.3s ease-in-out;
   position: fixed;
   z-index: 3;
   pointer-events: none;
@@ -8,6 +9,7 @@
 
   span {
     // @include transition($property: transform);
+    transition: transform 0.3s ease-in-out;
     width: 14px;
     height: 14px;
     border-radius: 50%;
