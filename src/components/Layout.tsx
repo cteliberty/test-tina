@@ -1,14 +1,28 @@
 import * as React from 'react'
+import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
+import 'locomotive-scroll/dist/locomotive-scroll.min.css';
 
 interface LayoutProps {
   header?: React.ReactNode,
   children?: React.ReactNode,
+  isHome?: boolean,
 }
 
 const Layout: React.FC<LayoutProps> = (props) => {
-  const { header, children } = props;
+  const { header, children, isHome } = props;
 
+  const scrollContainerRef = React.useRef(null)
   const cursorRef = React.useRef<HTMLDivElement>(null);
+
+  const scrollOption = isHome ?
+    {
+      smooth: true,
+      direction: 'horizontal',
+      tablet: { smooth: true },
+      smartphone: { smooth: true },
+    }
+    :
+    {smooth: true};
 
   React.useEffect(() => {
     import(
@@ -32,13 +46,23 @@ const Layout: React.FC<LayoutProps> = (props) => {
     <>
       <div className="uam_cursor" ref={cursorRef}><span></span></div>
 
-      <div id="swup" className="uam_viewport uam_home" data-scroll-container>
-        {header && header}
+      <LocomotiveScrollProvider
+        options={scrollOption}
+        watch={[
+          //..all the dependencies you want to watch to update the scroll.
+          //  Basicaly, you would want to watch page/location changes
+          //  For exemple, on Next.js you would want to watch properties like `router.asPath` (you may want to add more criterias if the instance should be update on locations with query parameters)
+        ]}
+        containerRef={scrollContainerRef}
+      >
+        <div id="swup" className="uam_viewport uam_home" data-scroll-container ref={scrollContainerRef}>
+          {(header && !isHome) && header}
 
-        <div className="uam_viewport_body">
-          {children}
+          <div className="uam_viewport_body">
+            {children}
+          </div>
         </div>
-      </div>
+      </LocomotiveScrollProvider>
 
       <footer className="uam_footer" data-scroll data-scroll-sticky data-scroll-target="#uam-header">
         <div className="uam_wrapper">

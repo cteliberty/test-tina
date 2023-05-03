@@ -1,8 +1,11 @@
 body {
   margin: 0;
   padding: 0;
-  cursor: none;
   color: $color-black;
   font-family: $font-text;
   overflow-x: hidden;
+
+  #___gatsby {
+    cursor: none;
+  }
 }
