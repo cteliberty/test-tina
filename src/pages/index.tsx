@@ -86,7 +86,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
 
 export const query = graphql`
   query homeEntryQuery {
-    contentfulHome(id: {eq: "dca7cb52-0a79-5d96-9272-be80f4a12844"}) {
+    contentfulHome(node_locale: {eq: "fr"}) {
       contentful_id
       adress {
         raw
