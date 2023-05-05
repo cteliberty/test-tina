@@ -101,7 +101,7 @@ export const query = graphql`
         who {
           gatsbyImageData(layout: CONSTRAINED)
         }
-        who_text,
+        #who_text,
         what
         how
       }
