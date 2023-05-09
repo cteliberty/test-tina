@@ -8,13 +8,13 @@ export interface ProjectItemProps {
   slug: string,
   title: string,
   who?: ImageDataLike,
-  who_text?: string,
+  whoText?: string,
   what: string,
   how: string,
 }
 
 const ProjectItem: React.FC<ProjectItemProps> = (props) => {
-  const { image, slug, title, who, who_text, what, how } = props;
+  const { image, slug, title, who, whoText, what, how } = props;
   const gatsbyImage:IGatsbyImageData | undefined = getImage(image);
   const gatsbyWho:IGatsbyImageData | undefined = who ? getImage(who) : undefined;
 
@@ -27,7 +27,7 @@ const ProjectItem: React.FC<ProjectItemProps> = (props) => {
           </div>
 
           <h2 className="uam_headerPage_title" data-scroll data-scroll-speed="1">
-            <a href={slug} className="uam_link" data-custom-link="true" data-link="Découvrir">
+            <a href={`/project/${slug}`} className="uam_link" data-custom-link="true" data-link="Découvrir">
               {title}
             </a>
           </h2>
@@ -39,7 +39,7 @@ const ProjectItem: React.FC<ProjectItemProps> = (props) => {
                 <p>
                   {
                     gatsbyWho ? <GatsbyImage image={gatsbyWho} alt={title} as="span" /> :
-                    who_text
+                    whoText
                   }
                 </p>
               </li>
