@@ -1,7 +1,7 @@
 import * as React from "react"
 import { HeadFC, graphql } from "gatsby"
 import { BLOCKS, Block, Inline, } from "@contentful/rich-text-types"
-import { RenderRichTextData, renderRichText } from 'gatsby-source-contentful/rich-text'
+import { RenderRichTextData, ContentfulRichTextGatsbyReference, renderRichText } from 'gatsby-source-contentful/rich-text'
 
 import Layout from '../components/Layout';
 import ProjectItem, {ProjectItemProps} from '../components/ProjectItem';
@@ -9,7 +9,7 @@ import ProjectItem, {ProjectItemProps} from '../components/ProjectItem';
 interface IndexPageProps {
   data: {
     contentfulHome: {
-      adress: RenderRichTextData,
+      adress: RenderRichTextData<ContentfulRichTextGatsbyReference>,
       project: ProjectItemProps[]
     }
   }
@@ -94,7 +94,7 @@ export const query = graphql`
       project {
         id
         title
-        image {
+        imageHome {
           gatsbyImageData(layout: FULL_WIDTH)
         }
         slug

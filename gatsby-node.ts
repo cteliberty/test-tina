@@ -5,5 +5,13 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
     type ContentfulProjet {
       whoText: String
     }
+
+    type ContentfulBlockSlideTexte {
+      link: String
+    }
+
+    type ContentfulBlockImageTexte {
+      link: String
+    }
   `)
 }

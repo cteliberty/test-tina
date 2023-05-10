@@ -39,11 +39,11 @@
   }
 
   @media screen and (min-width: $screen-m-min) {
-    &_bg,
-    .gatsby-image-wrapper {
+    &_bg {
       right: -15%;
 
-      img {
+      img,
+      .gatsby-image-wrapper {
         width: 75%;
       }
     }

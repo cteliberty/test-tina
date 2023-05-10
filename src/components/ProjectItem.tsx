@@ -5,6 +5,7 @@ export interface ProjectItemProps {
   id: string,
   date: string,
   image: ImageDataLike,
+  imageHome: ImageDataLike,
   slug: string,
   title: string,
   who?: ImageDataLike,
@@ -14,8 +15,8 @@ export interface ProjectItemProps {
 }
 
 const ProjectItem: React.FC<ProjectItemProps> = (props) => {
-  const { image, slug, title, who, whoText, what, how } = props;
-  const gatsbyImage:IGatsbyImageData | undefined = getImage(image);
+  const { imageHome, slug, title, who, whoText, what, how } = props;
+  const gatsbyImage:IGatsbyImageData | undefined = getImage(imageHome);
   const gatsbyWho:IGatsbyImageData | undefined = who ? getImage(who) : undefined;
 
   return (

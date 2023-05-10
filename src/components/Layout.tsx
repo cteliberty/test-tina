@@ -1,15 +1,18 @@
 import * as React from 'react'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import 'locomotive-scroll/dist/locomotive-scroll.min.css';
+import classnames from 'classnames';
 
 interface LayoutProps {
   header?: React.ReactNode,
   children?: React.ReactNode,
   isHome?: boolean,
+  isProject?: boolean,
+  layoutClass?: string,
 }
 
 const Layout: React.FC<LayoutProps> = (props) => {
-  const { header, children, isHome } = props;
+  const { header, children, isHome, isProject, layoutClass } = props;
 
   const scrollContainerRef = React.useRef(null)
   const cursorRef = React.useRef<HTMLDivElement>(null);
@@ -55,7 +58,14 @@ const Layout: React.FC<LayoutProps> = (props) => {
         ]}
         containerRef={scrollContainerRef}
       >
-        <div id="swup" className="uam_viewport uam_home" data-scroll-container ref={scrollContainerRef}>
+        <div id="swup" className={classnames(
+          'uam_viewport',
+          layoutClass,
+          {
+            'uam_home': isHome,
+            'uam_project': isProject,
+          }
+        )} data-scroll-container ref={scrollContainerRef}>
           {(header && !isHome) && header}
 
           <div className="uam_viewport_body">
