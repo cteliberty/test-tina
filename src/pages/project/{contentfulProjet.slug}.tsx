@@ -169,6 +169,14 @@ export const query = graphql`
             type
           }
         }
+        ... on ContentfulBlockImage {
+          image {
+            gatsbyImageData(layout: CONSTRAINED)
+          }
+          internal {
+            type
+          }
+        }
       }
     }
   }

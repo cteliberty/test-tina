@@ -1,6 +1,7 @@
 import * as React from "react"
 import BlockImageText from "./BlockImageText";
 import BlockSlideText from "./BlockSlideText";
+import BlockImage from "./BlockImage";
 import { RenderRichTextData, ContentfulRichTextGatsbyReference } from 'gatsby-source-contentful/rich-text'
 
 export type BlockTextProps = BlockPros & {
@@ -17,6 +18,7 @@ export interface BlockPros {
 }
 
 export enum BlockType {
+  BLOCK_IMAGE = 'ContentfulBlockImage',
   BLOCK_IMAGE_TEXT = 'ContentfulBlockImageTexte',
   BLOCK_SLIDE_TEXT = 'ContentfulBlockSlideTexte',
 }
@@ -27,6 +29,7 @@ export interface BlockCMSProps {
 
 const getBlocksDefs: () => Record<string, React.FC<any & BlockType>> = () => {
   return {
+    [BlockType.BLOCK_IMAGE]: BlockImage,
     [BlockType.BLOCK_IMAGE_TEXT]: BlockImageText,
     [BlockType.BLOCK_SLIDE_TEXT]: BlockSlideText,
   };
@@ -38,9 +41,9 @@ const BlockCMS: React.FC<BlockCMSProps> = (props) => {
   return (
     <>
       {blockProject.map((block, idx) => {
-        const Component = defs[block.internal.type];
+        console.log(block);
 
-        console.log(block.internal.type, Component, defs);
+        const Component = defs[block.internal.type];
         return (
           Component && (
             <div className="uam_stepItem" key={idx}>
