@@ -26,42 +26,10 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
     },
   }
 
-  const header = (
-    <header id="uam-header" className="uam_header" data-scroll data-scroll-repeat data-scroll-call="toggleBackToTop">
-      <div className="uam_wrapper">
-        <a className="uam_logo" href="/">
-          <i className="uam_icon_logo"></i>
-        </a>
-
-        <div className="uam_menu">
-          <a href="#" className="uam_link uam_menu_burger">
-            <i className="uam_icon_burger"></i>
-          </a>
-          <div className="uam_submenu">
-            <ul className="uam_wrapper">
-              <li className="uam_submenuItem">
-                <a className="uam_submenuItem_link" href="/index.html">Tous nos projets</a>
-              </li>
-              <li className="uam_submenuItem">
-                <a className="uam_submenuItem_link" href="/about.html">L'agence <small>(sans risques)</small></a>
-              </li>
-              <li className="uam_submenuItem">
-                <a className="uam_submenuItem_link" href="/join.html">On recrute</a>
-              </li>
-              <li className="uam_submenuItem">
-                <a className="uam_submenuItem_link" href="/contact.html">Contact</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </header>
-  );
-
   return (
-    <Layout header={header} isHome={true}>
+    <Layout isHome={true}>
       <div className="uam_intro" data-scroll-section>
-        <a className="uam_logo" href="index.html">
+        <a className="uam_logo" href="/">
           <i className="uam_icon_logo" data-scroll data-scroll-speed="1"></i>
         </a>
         <div className="uam_intro_footer uam_wrapper">

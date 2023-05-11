@@ -41,8 +41,6 @@ const BlockCMS: React.FC<BlockCMSProps> = (props) => {
   return (
     <>
       {blockProject.map((block, idx) => {
-        console.log(block);
-
         const Component = defs[block.internal.type];
         return (
           Component && (

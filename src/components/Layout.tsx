@@ -4,7 +4,6 @@ import 'locomotive-scroll/dist/locomotive-scroll.min.css';
 import classnames from 'classnames';
 
 interface LayoutProps {
-  header?: React.ReactNode,
   children?: React.ReactNode,
   isHome?: boolean,
   isProject?: boolean,
@@ -12,7 +11,7 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = (props) => {
-  const { header, children, isHome, isProject, layoutClass } = props;
+  const { children, isHome, isProject, layoutClass } = props;
 
   const scrollContainerRef = React.useRef(null)
   const cursorRef = React.useRef<HTMLDivElement>(null);
@@ -25,7 +24,7 @@ const Layout: React.FC<LayoutProps> = (props) => {
       smartphone: { smooth: true },
     }
     :
-    {smooth: true};
+    { smooth: true };
 
   React.useEffect(() => {
     import(
@@ -66,7 +65,37 @@ const Layout: React.FC<LayoutProps> = (props) => {
             'uam_project': isProject,
           }
         )} data-scroll-container ref={scrollContainerRef}>
-          {(header && !isHome) && header}
+          {!isHome &&
+            <header id="uam-header" className="uam_header" data-scroll data-scroll-repeat data-scroll-call="toggleBackToTop">
+              <div className="uam_wrapper">
+                <a className="uam_logo" href="/">
+                  <i className="uam_icon_logo"></i>
+                </a>
+
+                {/* <div className="uam_menu">
+                  <a href="#" className="uam_link uam_menu_burger">
+                    <i className="uam_icon_burger"></i>
+                  </a>
+                  <div className="uam_submenu">
+                    <ul className="uam_wrapper">
+                      <li className="uam_submenuItem">
+                        <a className="uam_submenuItem_link" href="/">Tous nos projets</a>
+                      </li>
+                      <li className="uam_submenuItem">
+                        <a className="uam_submenuItem_link" href="/about.html">L'agence <small>(sans risques)</small></a>
+                      </li>
+                      <li className="uam_submenuItem">
+                        <a className="uam_submenuItem_link" href="/join.html">On recrute</a>
+                      </li>
+                      <li className="uam_submenuItem">
+                        <a className="uam_submenuItem_link" href="/contact.html">Contact</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div> */}
+              </div>
+            </header>
+          }
 
           <div className="uam_viewport_body">
             {children}

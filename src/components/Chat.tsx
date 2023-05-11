@@ -10,8 +10,8 @@ const Chat: React.FC<ChatProps> = (props) => {
 
   return (
     <>
-      {chat.map((message) => (
-        <ChatMessage {...message} />
+      {chat.map((message, id) => (
+        <ChatMessage {...message} key={id} />
       ))}
     </>
   );
